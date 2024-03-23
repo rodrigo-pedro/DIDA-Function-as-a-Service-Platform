@@ -1,0 +1,16 @@
+storage s1 http://localhost:3333 0
+storage s2 http://localhost:5555 0
+storage s3 http://localhost:5556 0
+storage s4 http://localhost:5557 0
+storage s5 http://localhost:3334 0
+storage s6 http://localhost:5559 0
+worker w1 http://localhost:2222 0
+worker w2 http://localhost:4444 0
+scheduler sched1 http://localhost:1111
+wait 2000
+client 23 C:\Users\gonca\source\repos\itzduplex\DAD\DIDAScheduler\appfile.txt
+wait 2000
+listGlobal
+client 40 C:\Users\gonca\source\repos\itzduplex\DAD\DIDAScheduler\appfile.txt
+status
+listGlobal

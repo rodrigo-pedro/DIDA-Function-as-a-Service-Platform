@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+service DIDAWorkerService {
+	rpc DIDAProcessRequest(DIDAReqRequest) returns (DIDAReqReply);
+	rpc DIDARegisterStorage(DIDARegisterStorageRequest) returns (DIDARegisterStorageReply);
+	rpc DIDARegisterScheduler(DIDARegisterSchedulerRequest) returns (DIDARegisterSchedulerReply);
+
+}
+
+message DIDAMetaRecordMessage {
+	int32 id = 1;
+	int32 versionNumber = 2;
+	int32 replicaId = 3;
+	repeated int32 deadStoragesHashes = 4;
+}
+
+message DIDAAssignmentMessage {
+	DIDAOperatorIDMessage op = 1;
+	string host = 2;
+	int32 port = 3;
+	string output = 4;
+}
+
+message DIDAOperatorIDMessage {
+	string classname = 1;
+	int32 order = 2;
+}
+
+
+message DIDAReqRequest {
+	DIDAMetaRecordMessage meta = 1;
+	string input = 2;
+	int32 next = 3;
+	int32 chainSize = 4;
+	repeated DIDAAssignmentMessage chain = 5;
+}
+
+message DIDAReqReply {
+	bool ok = 1;
+}
+
+message DIDARegisterStorageRequest {
+	map<int32, string> storages = 1;
+	map<int32, int32> storageHashes = 2;
+}
+
+message DIDARegisterStorageReply {
+	bool ok = 1;
+}
+
+message DIDARegisterSchedulerRequest {
+	string url = 1;
+}
+
+message DIDARegisterSchedulerReply {
+	bool ok = 1;
+}

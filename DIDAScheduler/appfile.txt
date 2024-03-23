@@ -1,0 +1,9 @@
+operator WriteOperator 0
+operator ReadOperator 1
+operator WriteOperator 2
+operator WriteOperator 3
+operator WriteOperator 4
+operator WriteOperator 5
+operator WriteOperator 6
+operator UpdateOperator 7
+operator WriteOperator 8

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "DIDAWorker": {
+      "commandName": "Project",
+      "commandLineArgs": "3 http://localhost:3333 0"
+    }
+  }
+}

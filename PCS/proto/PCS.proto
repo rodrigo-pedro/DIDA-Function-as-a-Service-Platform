@@ -1,0 +1,30 @@
+﻿syntax = "proto3";
+
+
+service PCSService {
+	rpc CreateScheduler(CreateNodeRequest) returns (CreateNodeReply);
+	rpc CreateStorage(CreateNodeRequest) returns (CreateNodeReply);
+	rpc CreateWorker(CreateNodeRequest) returns (CreateNodeReply);
+	rpc KillNode(KillNodeRequest) returns (KillNodeReply);
+
+}
+
+message CreateNodeRequest {
+	int32 server_id = 1;
+	string name = 2;
+	string url = 3;
+	int32 gossip_delay = 4;
+	bool debug = 5;
+}
+
+message CreateNodeReply {
+	bool ok = 1;
+}
+
+message KillNodeRequest {
+	string name = 1;
+}
+
+message KillNodeReply {
+	bool ok = 1;
+}

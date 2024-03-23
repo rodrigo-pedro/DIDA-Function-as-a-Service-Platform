@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+service DIDAWorkerService {
+	rpc DIDARegisterStorage(DIDARegisterStorageRequest) returns (DIDARegisterStorageReply);
+	rpc DIDARegisterScheduler(DIDARegisterSchedulerRequest) returns (DIDARegisterSchedulerReply);
+}
+
+message DIDARegisterStorageRequest {
+	map<int32, string> storages = 1;
+	map<int32, int32> storageHashes = 2;
+}
+
+message DIDARegisterStorageReply {
+	bool ok = 1;
+}
+
+message DIDARegisterSchedulerRequest {
+	string url = 1;
+}
+
+message DIDARegisterSchedulerReply {
+	bool ok = 1;
+}

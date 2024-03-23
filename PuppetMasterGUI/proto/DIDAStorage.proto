@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+/* this service specifies how to access the storage */
+service DIDAStorageService {
+  rpc read(DIDAReadRequest) returns (DIDARecordReply);
+  rpc write(DIDAWriteRequest) returns (DIDAVersion);
+  rpc updateIfValueIs(DIDAUpdateIfRequest) returns (DIDAVersion);
+  rpc listServer(DIDAListServerRequest) returns (DIDAListServerReply);
+  rpc registerStorages(DIDARegisterStoragesRequest) returns (DIDARegisterStoragesReply);
+  rpc status(DIDAStatusRequest) returns (DIDAStatusReply);
+}
+
+message DIDAReadRequest {
+	string id = 1;  // the id of the object being read
+	DIDAVersion version = 2;
+}
+
+message DIDARecordReply {
+	string id = 1;
+	DIDAVersion version = 2;
+	string val = 3;
+}
+
+message DIDAVersion {
+	int32 versionNumber = 1;
+	int32 replicaId = 2;
+}
+
+message DIDAWriteRequest {
+	string id = 1;
+	string val = 2;
+}
+
+message DIDAUpdateIfRequest {
+	string id = 1;
+	string oldvalue = 2;
+	string newvalue = 3;
+}
+
+message DIDAListServerRequest {}
+
+message DIDAListServerReply {
+	repeated DIDARecordReply objects = 1;
+}
+
+message DIDARegisterStoragesRequest {
+	map<int32, string> urls  = 1;
+	map<int32, int32> hashes = 2;
+}
+
+message DIDARegisterStoragesReply {
+	bool ok = 1;
+}
+
+message DIDAStatusRequest {}
+
+message DIDAStatusReply {
+	string status = 1;
+}

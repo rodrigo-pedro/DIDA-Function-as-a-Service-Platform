@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "DIDAStorage": {
+      "commandName": "Project",
+      "commandLineArgs": "2 http://localhost:2222 0"
+    }
+  }
+}

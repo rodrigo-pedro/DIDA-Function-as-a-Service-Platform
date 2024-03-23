@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+service DIDASchedulerService {
+	rpc DIDARegisterWorkers(DIDARegisterWorkersRequest) returns (DIDARegisterWorkersReply);
+	rpc DIDARun(DIDARunRequest) returns (DIDARunReply);
+	rpc DIDAAddFreeWorker(DIDAAddFreeWorkerRequest) returns (DIDAAddFreeWorkerReply);
+}
+
+message DIDARunRequest {
+	string input = 1;
+	string app_file = 2;
+}
+
+message DIDARunReply {
+	bool ok = 1;
+}
+
+message DIDARegisterWorkersRequest {
+	map<string, string> workers = 1;
+}
+
+message DIDARegisterWorkersReply {
+	bool ok = 1;
+}
+
+message DIDAAddFreeWorkerRequest {
+	string id = 1;
+	bool last = 2;
+}
+
+message DIDAAddFreeWorkerReply {
+	bool ok = 1;
+}

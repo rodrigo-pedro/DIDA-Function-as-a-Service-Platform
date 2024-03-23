@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\StorageLocator\StorageLocator.csproj" />
+    <PackageReference Include="Google.Protobuf" Version="3.18.1" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.40.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.41.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+	  <Protobuf Include="proto\DIDAScheduler.proto" GrpcServices="Client" />
+	  <Protobuf Include="proto\DIDAStorage.proto" GrpcServices="Client" />
+	  <Protobuf Include="proto\DIDAWorker.proto" GrpcServices="Client" />
+    <Protobuf Include="proto\PCS.proto" GrpcServices="Client" />
+  </ItemGroup>
+
+</Project>

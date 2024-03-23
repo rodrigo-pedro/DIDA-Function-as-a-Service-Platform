@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <ApplicationIcon />
+    <OutputType>Exe</OutputType>
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="NewFile1.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.18.1" />
+    <PackageReference Include="Grpc.Core" Version="2.41.0" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.40.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.41.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+	<Protobuf Include="proto\DIDAScheduler.proto" GrpcServices="Server" />
+	<Protobuf Include="..\DIDAWorker\proto\DIDAWorker.proto" GrpcServices="Client" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="LibDIDAWorker">
+      <HintPath>..\DIDALibraries\LibDIDAWorker.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

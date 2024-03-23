@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <ApplicationIcon />
+    <OutputType>Exe</OutputType>
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Class1.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="StorageServer" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StorageLocator\StorageLocator.csproj" />
+    <PackageReference Include="Google.Protobuf" Version="3.18.1" />
+    <PackageReference Include="Grpc.Core" Version="2.41.0" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.40.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.41.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+	 <Protobuf Include="DIDAStorage.proto" GrpcServices="Both" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="LibDIDAWorker">
+      <HintPath>..\DIDALibraries\LibDIDAWorker.dll</HintPath>
+    </Reference>
+  
+  </ItemGroup>
+
+</Project>
